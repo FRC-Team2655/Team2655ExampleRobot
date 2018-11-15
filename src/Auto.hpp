@@ -35,8 +35,6 @@
  *       accomplished its task, however calling killAuto from the AutoManager will also run the command's complete
  *       function. This function should stop any in-progress tasks from the command.
  *
- *     *** IT IS IMPORTANT TO CALL THE BASE METHOD FOR EACH OVERRIDEN FUNCTION IN EACH AUTO COMMAND OTHERWISE
- *         NONE OF THE BUILTIN BEHAVIORS (INCLUDING TIMEOUTS) WILL WORK ***
  *
  * Each command will be mapped to a string by the getCommand function of the custom AutoManager
  */

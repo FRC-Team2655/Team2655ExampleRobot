@@ -18,8 +18,6 @@
 //////////////////////////////////////////////////////////////
 
 void DriveAutoCommand::start(std::vector<std::string> args){
-	// Call the parent function
-	AutoCommand::start(args);
 
 	// First arg should be direction (1 or -1)
 	// Second arg should be time in seconds. Use the builtin timeout.
@@ -27,15 +25,11 @@ void DriveAutoCommand::start(std::vector<std::string> args){
 }
 
 void DriveAutoCommand::process(){
-	// Call the parent function
-	AutoCommand::process();
 	// Drive the robot
 	RobotMap::robotDrive->ArcadeDrive(stoi(this->arguments[0]) * 0.5, 0, false);
 }
 
 void DriveAutoCommand::complete(){
-	// Call the parent function
-	AutoCommand::complete();
 	// Stop driving
 	RobotMap::robotDrive->ArcadeDrive(0, 0, false);
 }
@@ -45,8 +39,6 @@ void DriveAutoCommand::complete(){
 //////////////////////////////////////////////////////////////
 
 void RotateAutoCommand::start(std::vector<std::string> args){
-	// Call the parent function
-	AutoCommand::start(args);
 
 	// First arg should be direction (1 or -1)
 	// Second arg should be time in seconds. Use builtin timeout.
@@ -54,15 +46,11 @@ void RotateAutoCommand::start(std::vector<std::string> args){
 }
 
 void RotateAutoCommand::process(){
-	// Call the parent function
-	AutoCommand::process();
 	// Rotate in a certain direction
 	RobotMap::robotDrive->ArcadeDrive(0, stoi(this->arguments[0]) * 0.5, false); // First arg is either -1 or 1
 }
 
 void RotateAutoCommand::complete(){
-	// Call the parent function
-	AutoCommand::complete();
 	// Stop driving
 	RobotMap::robotDrive->ArcadeDrive(0, 0, false);
 }
@@ -72,16 +60,12 @@ void RotateAutoCommand::complete(){
 //////////////////////////////////////////////////////////////
 
 void DelayAutoCommand::start(std::vector<std::string> args){
-	// Call the parent function
-	AutoCommand::start(args);
 
 	// First arg should be time in seconds. Use builtin timeout
 	this->setTimeout(1000 * stod(args[0]));
 }
 
 void DelayAutoCommand::process(){
-	// Call the parent function
-	AutoCommand::process();
 	// Don't need to do anything for the delay function
 
 	// Make sure this is updated frequently (this just avoids warning messages) it is not required for this command to work.
@@ -89,8 +73,6 @@ void DelayAutoCommand::process(){
 }
 
 void DelayAutoCommand::complete(){
-	// Call the parent function
-	AutoCommand::complete();
 	// Nothing to stop for this command
 }
 
